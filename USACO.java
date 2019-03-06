@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class USACO{
-  public static int silver(String input) throws FileNotFoundException{
+  public static int bronze(String input) throws FileNotFoundException{
     File f = new File(input);
     Scanner scan = new Scanner(f);
 
@@ -19,10 +19,12 @@ public class USACO{
       }
     }
 
+
+
     return 0;
   }
 
-  public static int gold(){
+  public static int silver(){
     return 0;
   }
 }

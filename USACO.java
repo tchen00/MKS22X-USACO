@@ -18,6 +18,7 @@ public class USACO{
         pasture[i][j] = Integer.parseInt(elevations[j]);
       }
     }
+    // performing the stomp by cows
     while (scan.hasNextLine()){
       String[] stomp = scan.nextLine().split(" ");
       int row = Integer.parseInt(stomp[0]);
@@ -32,8 +33,8 @@ public class USACO{
       }
     }
     int output = 0;
-    for (int i = 1; i + row < pasture.length; i++){
-      for (int j = 1; j + col < pasture[i].length; j++){
+    for (int i = 1; i < pasture.length; i++){
+      for (int j = 1; j < pasture[i].length; j++){
         if (pasture[i][j] > 0){
           output += pasture[i][j];
         }
@@ -47,7 +48,11 @@ public class USACO{
   }
 
   public static void main(String[] args){
-
+    try {
+      System.out.println(bronze("makelake.in"));
+    }
+    catch (Exception e){
+      
+    }
   }
-
 }

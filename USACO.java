@@ -18,13 +18,36 @@ public class USACO{
         pasture[i][j] = Integer.parseInt(elevations[j]);
       }
     }
-
-
-
-    return 0;
+    while (scan.hasNextLine()){
+      String[] stomp = scan.nextLine().split(" ");
+      int row = Integer.parseInt(stomp[0]);
+      int col = Integer.parseInt(stomp[1]);
+      int num = pasture[row][col];
+      for (int i = 1; i + row < pasture.length; i++){
+        for (int j = 1; j + col < pasture[i].length; j++){
+          if (num < pasture[i][j]){
+            pasture[i][j] = num;
+          }
+        }
+      }
+    }
+    int output = 0;
+    for (int i = 1; i + row < pasture.length; i++){
+      for (int j = 1; j + col < pasture[i].length; j++){
+        if (pasture[i][j] > 0){
+          output += pasture[i][j];
+        }
+      }
+    }
+    return output * 6 * 6;
   }
 
   public static int silver(){
     return 0;
   }
+
+  public static void main(String[] args){
+
+  }
+
 }

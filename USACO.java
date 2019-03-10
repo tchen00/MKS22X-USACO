@@ -61,6 +61,19 @@ public class USACO{
     int row = Integer.parseInt(info[0]);
     int col = Integer.parseInt(info[1]);
     int time = Integer.parseInt(info[2]);
+
+    int[][] pasture = new int[row][col];
+    // filling in the pasture with info
+    for (int i = 0; i < row; i++){
+      String temp = scan.nextLine();
+      for (int j = 0; j < col; j++){
+        if (temp.charAt(j) == '*') {
+          // put trees as -1
+          pasture[i][j] = -1;
+        }
+      }
+    }
+    
     return 0;
   }
 

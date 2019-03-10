@@ -75,7 +75,7 @@ public class USACO{
     }
 
     // splitting the info in the last line
-    String[] info2 = info.nextLine().split(" ");
+    String[] info2 = scan.nextLine().split(" ");
     int R1 = Integer.parseInt(info2[0]) - 1;
     int C1 = Integer.parseInt(info2[1]) - 1;
     int R2 = Integer.parseInt(info2[2]) - 1;
@@ -125,10 +125,12 @@ public class USACO{
 
   public static void main(String[] args){
     try {
-      System.out.println(bronze("makelake.in"));
+      //System.out.println(bronze("makelake.in"));
+      System.out.println(silver("ctravel.1.in"));
+
     }
     catch (Exception e){
-
+      System.out.println("tried");
     }
   }
 }

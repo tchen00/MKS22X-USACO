@@ -89,7 +89,33 @@ public class USACO{
     return pasture[R2][C2];
   }
 
+  public static int[][] fillIn(int[][] pasture){
+    int[][] sum = new int[pasture.length][pasture[0].length];
+    // possible moves (neighbors)
+    int[][] moves = {{0,1},{0,-1},{1,0},{-1,0}};
 
+    //looping through the pasture
+    for (int r = 0; r < pasture.length; r++){
+      for (int c = 0; c < pasture[0].length; c++){
+        if (pasture[r][c] == -1) {
+          // if there are trees here
+          sum[r][c] = -1;
+        } else {
+          int temp = 0;
+          // loops through the possible moves
+          for (int i = 0; i < moves.length; i++){
+            if (!outOfBounds(pasture, r + moves[i][0], c + moves[i][1])) {
+              // adds the sum of the neighbors
+              temp += pasture[r + moves[i][0]][c + moves[i][1]];
+            }
+          }
+          sum[r][c] = temp;
+        }
+      }
+    }
+
+    return sum;
+  }
 
 
   public static boolean outOfBounds(int[][] pasture, int row, int col){

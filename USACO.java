@@ -74,12 +74,27 @@ public class USACO{
       }
     }
 
-    return 0;
+    // splitting the info in the last line
+    String[] info2 = info.nextLine().split(" ");
+    int R1 = Integer.parseInt(info2[0]) - 1;
+    int C1 = Integer.parseInt(info2[1]) - 1;
+    int R2 = Integer.parseInt(info2[2]) - 1;
+    int C2 = Integer.parseInt(info2[3]) - 1;
+
+    // set R1 + C1 to 1 and fill in the rest of the board
+    pasture[R1][C1] = 1;
+    for (int i = 0; i < time; i++){
+      pasture = fillIn(pasture);
+    }
+    return pasture[R2][C2];
   }
 
-  public static boolean outOfBounds(int[][] land, int row, int col){
+
+
+
+  public static boolean outOfBounds(int[][] pasture, int row, int col){
     // to check if out of bounds or if theres a tree
-    return row < 0 || col < 0 || row >= land.length || col >= land[0].length || land[row][col] == -1;
+    return row < 0 || col < 0 || row >= pasture.length || col >= pasture[0].length || pasture[row][col] == -1;
   }
 
   public static void main(String[] args){

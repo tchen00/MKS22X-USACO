@@ -42,6 +42,7 @@ public class USACO{
     }
     int level = Integer.parseInt(info[2]);
     int output = 0;
+    // adding the sum of the total levels
     for (int i = 0; i < pasture.length; i++){
       for (int j = 0; j < pasture[i].length; j++){
         if (pasture[i][j] > level) pasture[i][j] = 0;
@@ -55,6 +56,7 @@ public class USACO{
   }
 
   public static int silver(String file) throws FileNotFoundException{
+    // scanning in the file (general)
     File f = new File(file);
     Scanner scan = new Scanner(f);
     String[] info = scan.nextLine().split(" ");

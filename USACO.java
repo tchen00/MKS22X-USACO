@@ -21,17 +21,26 @@ public class USACO{
     // performing the stomp by cows
     while (scan.hasNextLine()){
       String[] stomp = scan.nextLine().split(" ");
-      int row = Integer.parseInt(stomp[0]);
-      int col = Integer.parseInt(stomp[1]);
-      int num = pasture[row][col];
-      for (int i = 1; i + row < pasture.length; i++){
-        for (int j = 1; j + col < pasture[i].length; j++){
-          if (num < pasture[i][j]){
-            pasture[i][j] = num;
-          }
+      int row = Integer.parseInt(stomp[0]) - 1;
+      int col = Integer.parseInt(stomp[1]) - 1;
+      int level = Integer.parseInt(stomp[2]);
+      //int num = pasture[row][col];
+      ArrayList<Integer> store = new ArrayList<>();
+      for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+          store.add(pasture[row + i][col + j]);
+        }
+      }
+      // got help for this; finds the max between the 9 coordinates
+      int target = Collections.max(store) - level;
+      for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+          // if elevation is greater than the target
+          if (pasture[row + i][col + j] > target) pasture[row + i][col + j] = target;
         }
       }
     }
+
     int output = 0;
     for (int i = 1; i < pasture.length; i++){
       for (int j = 1; j < pasture[i].length; j++){
@@ -40,7 +49,7 @@ public class USACO{
         }
       }
     }
-    return output * 6 * 6;
+    return output * 72 * 72;
   }
 
   public static int silver(){
@@ -52,7 +61,7 @@ public class USACO{
       System.out.println(bronze("makelake.in"));
     }
     catch (Exception e){
-      
+
     }
   }
 }

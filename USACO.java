@@ -73,8 +73,13 @@ public class USACO{
         }
       }
     }
-    
+
     return 0;
+  }
+
+  public static boolean outOfBounds(int[][] land, int row, int col){
+    // to check if out of bounds or if theres a tree
+    return row < 0 || col < 0 || row >= land.length || col >= land[0].length || land[row][col] == -1;
   }
 
   public static void main(String[] args){

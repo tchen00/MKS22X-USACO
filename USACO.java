@@ -40,11 +40,13 @@ public class USACO{
         }
       }
     }
-
+    int level = Integer.parseInt(info[2]);
     int output = 0;
-    for (int i = 1; i < pasture.length; i++){
-      for (int j = 1; j < pasture[i].length; j++){
-        if (pasture[i][j] > 0){
+    for (int i = 0; i < pasture.length; i++){
+      for (int j = 0; j < pasture[i].length; j++){
+        if (pasture[i][j] > level) pasture[i][j] = 0;
+        else {
+          pasture[i][j] = level - pasture[i][j];
           output += pasture[i][j];
         }
       }

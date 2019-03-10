@@ -54,7 +54,13 @@ public class USACO{
     return output * 72 * 72;
   }
 
-  public static int silver(){
+  public static int silver(String file) throws FileNotFoundException{
+    File f = new File(file);
+    Scanner scan = new Scanner(f);
+    String[] info = scan.nextLine().split(" ");
+    int row = Integer.parseInt(info[0]);
+    int col = Integer.parseInt(info[1]);
+    int time = Integer.parseInt(info[2]);
     return 0;
   }
 
